@@ -5,7 +5,7 @@
 -->
 <html lang="en" dir="ltr">
   <head>
-    <title> facebook login </title>
+    <title> Facebook / Google login </title>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -88,7 +88,7 @@
 
               gauth.then(function(){
                 console.log('google auth success');
-                if(gauth.isSignedln.get()){
+                if(gauth.isSignedIn.get()){
                   console.log("logined");
                   loginBtn.value = 'logout';
                 } else {
@@ -105,8 +105,9 @@
 
   </head>
   <body>
-    <p> Google  login test == </p>
+    <p> Google  login test </p>
     <input type="button" id="loginBtn" value="checking....">
+    <script type="text/javascript"> console.log("pass Google login test");</script>
 
     <!--
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
