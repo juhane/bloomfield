@@ -9,7 +9,9 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    
+    <!--
+    <meta name="google-signin-client_id" content="1039513244997-gmo5aho352m4ukl69brqi3uj7pha2gjd.apps.googleusercontent.com">
+    -->
     <script> // facebook login
       console.log("script==> facebook");
 
@@ -82,8 +84,17 @@
                     client_id:'1039513244997-gmo5aho352m4ukl69brqi3uj7pha2gjd.apps.googleusercontent.com'
               });
 
+              var loginBtn = document.querySelector('#loginBtn');
+
               gauth.then(function(){
                 console.log('google auth success');
+                if(gauth.isSignedln.get()){
+                  console.log("logined");
+                  loginBtn.value = 'logout';
+                } else {
+                  console.log("already logout")
+                  loginBtn.value = 'login';
+                }
               }, function(){
                 console.log('google auth failed');
               });
@@ -95,6 +106,7 @@
   </head>
   <body>
     <p> Google  login test == </p>
+    <input type="button" id="loginBtn" value="checking....">
 
     <!--
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
