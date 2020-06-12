@@ -85,19 +85,19 @@
 
       function checkLoginGoogStatus() {
         var loginBtn = document.querySelector('#loginBtn');
-        val googlename = document.querySelector('#googlename');
+        val gName = document.querySelector('#gName');
 
                 if(gauth.isSignedIn.get()){
                   console.log("logined");
                   loginBtn.value = 'logout';
                   var profile = gauth.currentUser.get().getBasicProfile();
                   console.log(profile.getName());
-                  googlename.innerHTML = 'Welcome <strong>' + profile.getName() + '</strong> ';
+                  gName.innerHTML = 'Welcome <strong>' + profile.getName() + '</strong> ';
 
                 } else {
                   console.log("already logout")
                   loginBtn.value = 'login';
-                  googlename.innerHTML = '';
+                  gName.innerHTML = '';
 
                 }
       }
@@ -128,8 +128,8 @@
   <body>
 
  <!----------------------------- Google --------------------------------------------->
-    <p> Google  login test 1.49 </p>
-    <span id='googlename'></span>
+    <p> Google  login test 2.37 </p><br>
+    <span id='gName'></span>
 
     <input type="button" id="loginBtn" value="checking...." onclick="
         if (this.value === 'login') {
