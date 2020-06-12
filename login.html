@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <!--
-  Google API Client id:1039513244997-k5b4l6h9o64v59638g114snih9ueqkm1.apps.googleusercontent.com
-  1039513244997-gmo5aho352m4ukl69brqi3uj7pha2gjd.apps.googleusercontent.com
-  Google API Client Secret : iAM3N8W8JsiPMUE7N7R5uift
+  Google API Client id:11039513244997-gmo5aho352m4ukl69brqi3uj7pha2gjd.apps.googleusercontent.com
+  Google API Client Secret : 
 -->
 <html lang="en" dir="ltr">
   <head>
@@ -10,7 +9,7 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id" content="1039513244997-gmo5aho352m4ukl69brqi3uj7pha2gjd.apps.googleusercontent.com">
+    
     <script> // facebook login
       console.log("script==> facebook");
 
@@ -59,9 +58,10 @@
 		//});
 	};
 
-console.log("script==> google");
+
+// Google Auth2
+
   function onSignIn(googleUser) {
-    console.log("script==> google inside: ", googleUser);
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());
@@ -69,9 +69,27 @@ console.log("script==> google");
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 
-
+// Google Auth2
 
 	  </script>
+    <script type="text/javascript">
+      function init() {
+          gapi.load('auth2', function() {
+            /* Ready. Make a call to gapi.auth2.init or some other API */
+
+              var gauth = gapi.auth2.init({
+                    client_id: '1039513244997-gmo5aho352m4ukl69brqi3uj7pha2gjd.apps.googleusercontent.com'
+              });
+
+              gauth.then(function(){
+                console.log('google auth success');
+              }, function(){
+                console.log('google auth failed');
+              });
+          });
+      }
+
+    </script>
 
   </head>
   <body>
@@ -121,6 +139,6 @@ console.log('logout==>');
    ">
 -->
 
-
+<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
   </body>
 </html>
