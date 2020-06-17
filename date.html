@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JQuery Date Picker by Tutorial Villa</title>
+    <link
+      rel="stylesheet"
+      href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+
   <body>
-    <h1>Show a Date Control</h1>
+    <h1>JQuery Date Picker by Tutorial Villa</h1>
+    <br /><br />
+    <p>Simple Datepicker</p>
+    <input type="text" class="simple_date" />
 
-    <form action="/action_page.php">
-      <label for="birthday">Birthday:</label>
-      <input type="date" id="birthday" name="birthday" />
-      <input type="submit" />
-    </form>
-
-    <p>
-      <strong>Note:</strong> type="date" is not supported in Safari or Internet
-      Explorer 11 (or earlier).
-    </p>
+    <script>
+      $(function () {
+        $(".simple_date").datepicker();
+      });
+    </script>
   </body>
 </html>
