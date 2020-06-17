@@ -12,7 +12,8 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 
 		<!-- added for Bloomfield's datepicker 06/03/2020 -->
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+		<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" /> -->
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -22,14 +23,15 @@
 
 		<!-- -->
 		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168763853-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168763853-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
 
-  gtag('config', 'UA-168763853-1');
-</script>
+		  gtag('config', 'UA-168763853-1');
+		</script>
+
 
 
 	</head>
@@ -73,27 +75,27 @@
 									<div class="fields">
 										<div class="field half">
 											<label for="phone">Phone</label>
-											<input type="tel" id="phone" name="cell phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="9732591616" required >
+											<input type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="" required >
 										</div>
 										<div class="field half">
 											<label for="name">Name</label>
-											<input type="text" name="name" id="name" placeholder="BLOOMFIELD DRY CLEANERS" required />
+											<input type="text" name="name" id="name" placeholder="" required />
 										</div>
 										<div class="field">
 											<label for="email">Email</label>
-											<input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="bloomfield.dry.cleaner@gmail.com" required />
+											<input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="" required />
 										</div>
 										<div class="field">
 											<label for="text">Address</label>
-											<input type="text" name="address" id="address" placeholder="373 Broad St" required />
+											<input type="text" name="address" id="address" placeholder="" required />
 										</div>
 										<div class="field half">
 											<label for="text">City</label>
-											<input type="text" name="city" id="city" placeholder="Bloomfield" required />
+											<input type="text" name="city" id="city" placeholder="" required />
 										</div>
 										<div class="field half">
 											<label for="text">Zip</label>
-											<input type="text" name="zip" id="zip" pattern="[0-9]*.{8,}" placeholder="07003" required />
+											<input type="text" name="zip" id="zip" pattern="[0-9]*.{8,}" placeholder="" required />
 										</div>
 										<div class="field half">
 											<label for="text"> Pick-Up Date</label>
@@ -112,7 +114,8 @@
 											//	});
 											</script>
 
-											<!-- Scripts For Bloomfield 06/03/2020 -->
+
+											<!-- Scripts For Bloomfield 06/03/2020  end-->
 										</div>
 										<div class="field half">
 											<label for="text">Pick-Up Time</label>
@@ -220,7 +223,8 @@
 								</form>
 							</article>
 
-					<!-- Elements -->
+<!-- 							
+						<!-- Elements -->
 							<article id="elements">
 								<h2 class="major">Elements</h2>
 
@@ -497,6 +501,6 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
-
+ -->
 	</body>
 </html>
