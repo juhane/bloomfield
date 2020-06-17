@@ -11,11 +11,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 
-		<!-- added for Bloomfield's datepicker 06/03/2020 -->
-		<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" /> -->
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+      
 
 		<!-- added for Bloomfield's datepicker 06/03/2020 -->
 
@@ -32,18 +31,6 @@
 		  gtag('config', 'UA-168763853-1');
 		</script>
 
-<script type="text/javascript">
-    var datefield=document.createElement("input")
-    datefield.setAttribute("type", "date")
-    if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
-        document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
-        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
-        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n') 
-    }
-</script>
- 
-
-
 	</head>
 	<body class="is-preload">
 
@@ -57,7 +44,7 @@
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>Bloomfield Dry Cleaners</h1>
+								<h1>Bloomfield Dry Cleaners 2.18</h1>
 								<p>For over 30 years, Bloomfield Dry Cleaners has been one of the highest quality dry cleaners in Bloomfield, NJ. In fact, we have been known by our customers one of the city’s best dry cleaner for three decades! With our state-of-the-art facility and friendly customer service, we can ensure your clothing receives the proper cleaning every time you visit.
 									<h3><a href="tel:1-973-259-1616">Tel: 973.259.1616</a></h3>
 									<b>373 Broad St, Bloomfield, NJ 07003</b>
@@ -110,24 +97,28 @@
 										</div>
 										<div class="field half">
 											<label for="text"> Pick-Up Date</label>
-											<input type="date" id="pickup-date" name="pickup-date" placehold="" required />
+											<input type="text" id="pickup-date" name="pickup-date" placehold="" required />
 											<!-- Scripts For Bloomfield 06/03/2020 -->
-<!-- 
+
 											<script>
-											
-												if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
-													jQuery(function($){ //on document.ready
-														$('#pickup-date').datepicker({
-															//daysOfWeekDisabled: [0,6],
-															dateFormat: "mm/dd/yy",
-															maxDate:'+10d',
-															minDate: '+1',
-															beforeShowDay: function(date){ return [date.getDay() != 0 && date.getDay() != 6,""]}
-														});
-													})
-												}
-											
-											</script> -->
+												$('#pickup-date').datepicker({
+													//daysOfWeekDisabled: [0,6],
+													dateFormat: "mm/dd/yy",
+													maxDate:'+10d',
+													minDate: '+1',
+													beforeShowDay: function(date){ return [date.getDay() != 0 && date.getDay() != 6,""]}
+												});
+												$(function() {
+													$(".hasDatepicker, .ui-datepicker, .ui-datepicker-trigger").click(function(event) {
+															event.stopPropagation();
+													});
+													
+													$("body").bind("click touchstart", function(event) {
+															$('.ui-datepicker').hide();
+															$('.hasDatepicker').blur();
+													});
+												});
+											</script>
 
 
 											<!-- Scripts For Bloomfield 06/03/2020  end-->
