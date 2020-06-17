@@ -32,6 +32,16 @@
 		  gtag('config', 'UA-168763853-1');
 		</script>
 
+<script type="text/javascript">
+    var datefield=document.createElement("input")
+    datefield.setAttribute("type", "date")
+    if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
+        document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n') 
+    }
+</script>
+ 
 
 
 	</head>
@@ -103,15 +113,19 @@
 											<!-- Scripts For Bloomfield 06/03/2020 -->
 
 											<script>
-											//	$(function(){
-													$('#pickup-date').datepicker({
-														//daysOfWeekDisabled: [0,6],
-														dateFormat: "mm/dd/yy",
-														maxDate:'+10d',
-														minDate: '+1',
-														beforeShowDay: function(date){ return [date.getDay() != 0 && date.getDay() != 6,""]}
-													});
-											//	});
+											
+												if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
+													jQuery(function($){ //on document.ready
+														$('#pickup-date').datepicker({
+															//daysOfWeekDisabled: [0,6],
+															dateFormat: "mm/dd/yy",
+															maxDate:'+10d',
+															minDate: '+1',
+															beforeShowDay: function(date){ return [date.getDay() != 0 && date.getDay() != 6,""]}
+														});
+													})
+												}
+											
 											</script>
 
 
