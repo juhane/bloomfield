@@ -14,13 +14,8 @@
 		<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-      
-
-		
-
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-		
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168763853-1"></script>
 		<script>
@@ -54,10 +49,10 @@
 						</div>
 						<nav>
 							<ul>
-								<li><a href="#pick-up">Pick-up</a></li>
-								<li><a href="#coupon">Coupon</a></li>
-								<li><a href="#myclothes">my clothes</a></li>
-								<li><a href="#location">location</a></li>
+								<li><a href="#pick-up"><b>Pick-up</b></a></li>
+								<li><a href="#coupon"><b>Coupon</b></a></li>
+								<li><a href="#myclothes"><b>my clothes</b></a></li>
+								<li><a href="#location"><b>location</b></a></li>
 							</ul>
 						</nav>
 					</header>
@@ -69,11 +64,13 @@
 							<article id="pick-up">
 								<h2 class="major">pick-up</h2>
 								<!-- New 06/03/2020 -->
-								<form method="post" action="#">
+								<!-- <form method="post" action="#"> -->
+								<form class="gform" method="POST" data-email="ykim.ppc@gmail.com"
+									action="https://script.google.com/macros/s/AKfycbz3-z-42REskaxdbPrm7kI31T_dFiVfDLXit6rTQtaFtQOtvqU/exec">
 									<div class="fields">
 										<div class="field half">
 											<label for="phone">Phone</label>
-											<input type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="" required >
+											<input type="tel" name="phone" id="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="" required >
 										</div>
 										<div class="field half">
 											<label for="name">Name</label>
@@ -93,7 +90,7 @@
 										</div>
 										<div class="field half">
 											<label for="text">Zip</label>
-											<input type="text" name="zip" id="zip" pattern="[0-9]*.{8,}" placeholder="" required />
+											<input type="text" name="zip" id="zip" pattern="[0-9]{5}" placeholder="" required />
 										</div>
 										<div class="field half">
 											<label for="text"> Pick-Up Date</label>
@@ -119,9 +116,6 @@
 													});
 												});
 											</script>
-
-
-											<!-- Scripts For Bloomfield 06/03/2020  end-->
 										</div>
 										<div class="field half">
 											<label for="text">Pick-Up Time</label>
@@ -141,10 +135,45 @@
 											<textarea name="message" id="message" rows="4" placeholder="Need Special Care? Let us Know. Just type in, please." ></textarea>
 										</div>
 									</div>
+	
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="submit" value="Send Message" class="primary" onclick="myFunction()" /></li>
+										<!-- <li><input type="submit" value="Send Message" class="primary"  /></li> -->
+										<script>
+											function myFunction() {  
+												if (document.getElementById("phone").validationMessage != "") {
+													return false;
+												} else if (document.getElementById("name").validationMessage != ""){
+													return false;
+												} else if (document.getElementById("email").validationMessage != ""){
+													return false;
+												} else if (document.getElementById("address").validationMessage != ""){
+													return false;
+												} else if (document.getElementById("city").validationMessage != ""){
+													return false;
+												} else if (document.getElementById("zip").validationMessage != ""){
+													return false;
+												} else if (document.getElementById("pickup-date").validationMessage != ""){
+													return false;
+												} else if (document.getElementById("pickup-time").validationMessage != ""){
+													return false;
+												} else if (document.getElementById("message").validationMessage != ""){
+													return false;
+												} else {
+													setTimeout(function () {window.location.href = 'index.html';}, 3000);
+												}
+											}
+										</script>
+
 										<li><input type="reset" value="Reset" /></li>
+										<input type="hidden" name="category" id="category" value="Pickup" />	
 									</ul>
+									<!-- Thanks  -->
+									
+									<div  style="display:none" class="thankyou_message">
+										<h3><em>Thanks</em> for contacting us!</h3> 
+										<p>We will get back to you soon!</p>
+									</div>
 								</form>
 							</article>
 
@@ -152,42 +181,69 @@
 							<article id="coupon">
 								<h2 class="major">Coupon</h2>
 								<!-- New 06/03/2020 -->
-								<form method="post" action="#">
+								<form class="gform" method="POST" data-email="ykim.ppc@gmail.com"
+									action="https://script.google.com/macros/s/AKfycbz3-z-42REskaxdbPrm7kI31T_dFiVfDLXit6rTQtaFtQOtvqU/exec">
 									<div class="fields">
 										<div class="field half">
 											<label for="phone">Phone</label>
-											<input type="tel" id="phone_cp" name="phone_cp" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="" required >
+											<input type="tel" name="phone" id="phone_cp" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="" required >
 										</div>
 										<div class="field half">
 											<label for="name">Name</label>
-											<input type="text" name="name_cp" id="name_cp" placeholder="" required />
+											<input type="text" name="name" id="name_cp" placeholder="" required />
 										</div>
 										<div class="field">
 											<label for="email">Email</label>
-											<input type="email" name="email_cp" id="email_cp" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="" required />
+											<input type="email" name="email" id="email_cp" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="" required />
 										</div>
 										<div class="field">
 											<label for="text">Address</label>
-											<input type="text" name="address_cp" id="address_cp" placeholder="" required />
+											<input type="text" name="address" id="address_cp" placeholder="" required />
 										</div>
 										<div class="field half">
 											<label for="text">City</label>
-											<input type="text" name="city_cp" id="city_cp" placeholder="" required />
+											<input type="text" name="city" id="city_cp" placeholder="" required />
 										</div>
 										<div class="field half">
 											<label for="text">Zip</label>
-											<input type="text" name="zip_cp" id="zip_cp" pattern="[0-9]*.{8,}" placeholder="" required />
+											<input type="text" name="zip" id="zip_cp" pattern="[0-9]{5}" placeholder="" required />
 										</div>
 
 										<div class="field">
 											<label for="message">Message</label>
-											<textarea name="message_cp" id="message_cp" rows="4" placeholder="New customer? Birthday? Let us celebrate together. Please type in."></textarea>
+											<textarea name="message" id="message_cp" rows="4" placeholder="New customer? Birthday? Let us celebrate together. Please type in."></textarea>
 										</div>
 									</div>
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="submit" value="Send Message" class="primary" onclick="myFunctionCP()"/></li>
+										<script>
+											function myFunctionCP() {  
+												if (document.getElementById("phone_cp").validationMessage != "") {
+													return false;
+												} else if (document.getElementById("name_cp").validationMessage != ""){
+													return false;
+												} else if (document.getElementById("email_cp").validationMessage != ""){
+													return false;
+												} else if (document.getElementById("address_cp").validationMessage != ""){
+													return false;
+												} else if (document.getElementById("city_cp").validationMessage != ""){
+													return false;
+												} else if (document.getElementById("zip_cp").validationMessage != ""){
+													return false;
+												} else if (document.getElementById("message_cp").validationMessage != ""){
+													return false;
+												} else {
+													setTimeout(function () {window.location.href = 'index.html';}, 3000);
+												}
+											}
+										</script>
 										<li><input type="reset" value="Reset" /></li>
+										<input type="hidden" name="category" id="category_cp" value="Coupon" />
 									</ul>
+									<div  style="display:none" class="thankyou_message">
+										<h3><em>Thanks</em> for contacting us!</h3> 
+										<p>We will get back to you soon!</p>
+									</div>
 								</form>
 							</article>
 
@@ -203,32 +259,61 @@
 						<!-- My Clothes -->
 							<article id="myclothes">
 								<h2 class="major">My Clothes</h2>
-								<form method="post" action="#">
+								<!-- <form method="post" action="#"> -->
+									<form class="gform" method="POST" data-email="ykim.ppc@gmail.com"
+									action="https://script.google.com/macros/s/AKfycbz3-z-42REskaxdbPrm7kI31T_dFiVfDLXit6rTQtaFtQOtvqU/exec">
 									<div class="fields">
 										<div class="field half">
 											<label for="phone">Phone</label>
-											<input type="tel" id="phone_mc" name="phone_mc" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="" required >
+											<input type="tel" name="phone" id="phone_mc" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="" required >
 										</div>
 										<div class="field half">
 											<label for="name">Name</label>
-											<input type="text" name="name_mc" id="name_mc" placeholder="" required />
+											<input type="text" name="name" id="name_mc" placeholder="" required />
 										</div>
 										<div class="field">
 											<label for="email">Email</label>
-											<input type="email" name="email_mc" id="email_mc" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="" required />
+											<input type="email" name="email" id="email_mc" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="" required />
 										</div>
 										<div class="field">
 											<label for="message">Message</label>
-											<textarea name="message_mc" id="message_mc" rows="4" placeholder="We will contact you soon. Please let me know the day you dropped or we picked."></textarea>
+											<textarea name="message" id="message_mc" rows="4" placeholder="We will contact you soon. Please let me know the day you dropped or we picked."></textarea>
 										</div>
 									</div>
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="submit" value="Send Message" class="primary" onclick="myFunctionMC()" /></li>
+										<script>
+											function myFunctionMC() {  
+												if (document.getElementById("phone_mc").validationMessage != "") {
+													return false;
+												} else if (document.getElementById("name_mc").validationMessage != ""){
+													return false;
+												} else if (document.getElementById("email_mc").validationMessage != ""){
+													return false;
+												} else {
+													setTimeout(function () {window.location.href = 'index.html';}, 3000);
+												}
+											}
+										</script>
 										<li><input type="reset" value="Reset" /></li>
+										<input type="hidden" name="category" id="category_mc" value="MyClothes" />
 									</ul>
+									<div  style="display:none" class="thankyou_message">
+										<h2><em>Thanks</em> for contacting us!</h2> 
+										<p>We will get back to you soon!</p>
+									</div>
 								</form>
 							</article>
+					</div>
+						<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright"> Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+				</footer>
 
+			</div>
+
+				<!-- BG -->
+			<div id="bg"></div>			
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -236,6 +321,8 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+		<!-- To prevent the page from changing to the JSON response/result we need to submit the form using AJAX. -->
+			<script data-cfasync="false" type="text/javascript" src="assets/js/form-submission-handler.js"></script>
 		
 	</body>
 </html>
